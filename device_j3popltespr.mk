@@ -35,14 +35,15 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.target.rc \
-    ueventd.rc
+    ueventd.rc \
+    init.zygot32.rc
 	
 #or
 
 PRODUCT_COPY_FILES += \
-	device/samsung/j3popltespr/files/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-	device/samsung/j3popltespr/files/init.qcom.sensors.sh:root/init.qcom.sensors.sh \	
-	device/samsung/j3popltespr/files/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
+    device/samsung/j3popltespr/files/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    device/samsung/j3popltespr/files/init.qcom.sensors.sh:root/init.qcom.sensors.sh \	
+    device/samsung/j3popltespr/files/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
     device/samsung/j3popltespr/files/init.qcom.sh:root/init.recovery.usb.rc \
     device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.recovery.usb.rc 
  #   device/samsung/j3popltespr/files/init.qcom.sh:root/init.qcom.sh \
