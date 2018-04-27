@@ -19,6 +19,31 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full.mk)
 
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_j3popltespr
 PRODUCT_DEVICE := j3popltespr
+
+#	Boot file attempt 1
+
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    initlogo.rle \
+    init.bt.rc \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.target.rc \
+    ueventd.rc
+	
+#or
+
+PRODUCT_COPY_FILES += \
+	device/samsung/j3popltespr/files/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+	device/samsung/j3popltespr/files/init.qcom.sensors.sh:root/init.qcom.sensors.sh \	
+	device/samsung/j3popltespr/files/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
+    device/samsung/j3popltespr/files/init.qcom.sh:root/init.recovery.usb.rc \
+    device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.recovery.usb.rc 
+ #   device/samsung/j3popltespr/files/init.qcom.sh:root/init.qcom.sh \
+ #   device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.qcom.usb.sh \
