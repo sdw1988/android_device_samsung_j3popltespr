@@ -54,9 +54,9 @@ BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_SECOND_OFFSET := 0x01e00000
 BOARD_KERNAL_TAGS_OFFSET := 0x01E00000
 
-BOARD_KERNEL_SEPARATED_DT := true
+#BOARD_KERNEL_SEPARATED_DT := true
 
-TARGET_USE_MDTP := true
+#TARGET_USE_MDTP := true
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
