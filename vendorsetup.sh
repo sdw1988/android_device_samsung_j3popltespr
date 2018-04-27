@@ -1,2 +1,2 @@
 
-add_lunch_combo full_j3popltespr-userdebug
+add_lunch_combo cm_j3popltespr-userdebug
