@@ -14,8 +14,8 @@ TARGET_USES_OVERLAY := true
 
 #TARGET_NO_BOOTLOADER := true	does download mode count as bootloader
 TARGET_NO_KERNEL := false
-TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RPC := true
+#TARGET_NO_RADIOIMAGE := true
+#TARGET_NO_RPC := true
 
 TARGET_BOARD_PLATFORM := msm8937
 
@@ -32,7 +32,9 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_BOOTLOADER_BOARD_NAME := j3popltespr
 
-TARGET_USES_CSVT := true
+# TARGET_USES_CSVT := true
+
+# unpackbootimg
 
 #	BOARD_KERNEL_CMDLINE console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci
 #	BOARD_KERNEL_BASE 80000000
@@ -45,14 +47,24 @@ TARGET_USES_CSVT := true
 #	BOARD_TAGS_OFFSET 01e00000
 #	BOARD_DT_SIZE 1294336
 
+# unmkbootimg
+
+#  *** WARNING ****
+# This image is built using NON-standard mkbootimg!
+# OFF_KERNEL_ADDR is 0xFE208100
+# OFF_RAMDISK_ADDR is 0x00200100
+# OFF_SECOND_ADDR is 0xFF100100
+# Please modify mkbootimg.c using the above values to build your image.
+# ****************
+
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci
-BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_BASE := 0x80008000
 BOARD_KERNEL_PAGESIZE    := 2048
 
-#BOARD_KERNEL_OFFSET := 0x00008000
-BOARD_RAMDISK_OFFSET := 0x02000000
+BOARD_KERNEL_OFFSET := 0xFE208100
+BOARD_RAMDISK_OFFSET := 0x00200100
 BOARD_SECOND_OFFSET := 0x01e00000
-BOARD_KERNAL_TAGS_OFFSET := 0x01E00000
+BOARD_KERNAL_TAGS_OFFSET := 0x80f00000
 
 BOARD_FLASH_BLOCK_SIZE := 131072
 

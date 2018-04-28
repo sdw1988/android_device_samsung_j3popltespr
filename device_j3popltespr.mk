@@ -28,16 +28,15 @@ PRODUCT_DEVICE := j3popltespr
 
 #	Boot file attempt 1
 
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    initlogo.rle \
-    init.bt.rc \
-    init.qcom.rc \
-    init.qcom.usb.rc \
-    init.target.rc \
-    ueventd.rc \
-    init.zygot32.rc
-	
+#PRODUCT_PACKAGES += \
+ #   fstab.qcom \
+  ##  initlogo.rle \
+    #init.bt.rc \
+#    init.qcom.rc \
+ #   init.qcom.usb.rc \
+  #  init.target.rc \
+   # ueventd.rc \
+    #init.zygote32.rc
 #or
 
 PRODUCT_COPY_FILES += \
@@ -45,6 +44,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/j3popltespr/files/init.qcom.sensors.sh:root/init.qcom.sensors.sh \
     device/samsung/j3popltespr/files/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
     device/samsung/j3popltespr/files/init.qcom.sh:root/init.recovery.usb.rc \
-    device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.recovery.usb.rc 
- #   device/samsung/j3popltespr/files/init.qcom.sh:root/init.qcom.sh \
- #   device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.qcom.usb.sh \
+    device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.recovery.usb.rc \
+    device/samsung/j3popltespr/files/init.qcom.sh:root/init.qcom.sh \
+    device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.qcom.usb.sh \
+    device/samsung/j3popltespr/files/init.recovery.service.rc:root/init.recovery.service.usb.rc
