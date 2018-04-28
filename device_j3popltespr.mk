@@ -44,7 +44,16 @@ PRODUCT_COPY_FILES += \
     device/samsung/j3popltespr/files/init.qcom.sensors.sh:root/init.qcom.sensors.sh \
     device/samsung/j3popltespr/files/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
     device/samsung/j3popltespr/files/init.qcom.sh:root/init.recovery.usb.rc \
-    device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.recovery.usb.rc \
+    device/samsung/j3popltespr/files/init.qcom.factory.rc:root/init.qcom.factory.rc \
     device/samsung/j3popltespr/files/init.qcom.sh:root/init.qcom.sh \
+    device/samsung/j3popltespr/files/init.qcom.rc:root/init.qcom.rc \
     device/samsung/j3popltespr/files/init.qcom.usb.sh:root/init.qcom.usb.sh \
-    device/samsung/j3popltespr/files/init.recovery.service.rc:root/init.recovery.service.usb.rc
+    device/samsung/j3popltespr/files/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    device/samsung/j3popltespr/files/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    device/samsung/j3popltespr/files/fstab.qcom:root/fstab.qcom \
+    device/samsung/j3popltespr/files/init.recovery.service.rc:root/init.recovery.service.usb.rc 
+
+
+PRODUCT_COPY_FILES += \
+    device/samsung/j3popltespr/files/ueventd.qcom.rc:recovery/ueventd.qcom.rc \
+    device/samsung/j3popltespr/files/fstab.qcom:recovery/fstab.qcom
