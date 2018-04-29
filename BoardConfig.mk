@@ -47,36 +47,38 @@ TARGET_BOOTLOADER_BOARD_NAME := j3popltespr
 #	BOARD_TAGS_OFFSET 01e00000
 #	BOARD_DT_SIZE 1294336
 
-# unmkbootimg
-
-#  *** WARNING ****
-# This image is built using NON-standard mkbootimg!
-# OFF_KERNEL_ADDR is 0xFE208100
-# OFF_RAMDISK_ADDR is 0x00200100
-# OFF_SECOND_ADDR is 0xFF100100
-# Please modify mkbootimg.c using the above values to build your image.
-# ****************
+#80000000-851fefff : System RAM
+#  80008000-811749b7 : Kernel code
+#  81300000-81a87ec3 : Kernel data
+#85400000-857fffff : System RAM
+#8e100000-8fbfffff : System RAM
+#90000000-afffffff : System RAM
+#c0000000-efffffff : System RAM
 
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci
-BOARD_KERNEL_BASE := 0x81dfff00
-#0x80008000
+
+# mkbootimg --kernel zImage --ramdisk initramfs.cpio.gz --base 0x80000000 
+#--pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 
+#--dt dt.img
+
+BOARD_KERNEL_BASE := 0x80000000 
 BOARD_KERNEL_PAGESIZE    := 2048
 
-BOARD_KERNEL_OFFSET := 0xFE208100
-BOARD_RAMDISK_OFFSET := 0x00200100
-BOARD_SECOND_OFFSET := 0x01e00000
-BOARD_KERNEL_TAGS_OFFSET := 0x80f00000
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x02000000
+BOARD_SECOND_OFFSET := 0x00f00000
+BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
 
 BOARD_FLASH_BLOCK_SIZE := 4096 #131072
 
-BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE)\ 
+						--kernel_offset $(BOARD_KERNEL_OFFSET) \ 
+						--ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
+						--tags_offset $(BOARD_KERNEL_TAGS_OFFSET) \
+						--pagesize $(BOARD_KERNEL_PAGESIZE)
 #--dt
 
-#mkbootimg --kernel zImage --ramdisk initramfs.cpio.gz --base 0x81dfff00
-# --board 'SPRPI28A000KU' -o new_boot.img
-
-
-#BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_SEPARATED_DT := true
 
 TARGET_USE_MDTP := true
 # lrwxrwxrwx root     root              2016-01-04 05:16 mdtp -> /dev/block/mmcblk0p37
@@ -84,12 +86,12 @@ TARGET_USE_MDTP := true
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
 # Increase the size if shaders of size greater than 12KB are used.
-#MAX_EGL_CACHE_KEY_SIZE := 12*1024
+# MAX_EGL_CACHE_KEY_SIZE := 12*1024
 
 # Maximum GLES shader cache size for each app to store the compiled shader
 # binaries. Decrease the size if RAM or Flash Storage size is a limitation
 # of the device.
-#MAX_EGL_CACHE_SIZE := 2048*1024
+# MAX_EGL_CACHE_SIZE := 2048*1024
 
 # fix this up by examining /proc/mtd on a running device
 # BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00380000
@@ -107,6 +109,8 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 134217728 # 32768 x 4096
 
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
+TARGET_KERNEL_SOURCE := kernel/samsung/j3popltespr
+TARGET_KERNEL_CONFIG := msm8937_sec_j3poplte_usa_spr_defconfig
 TARGET_PREBUILT_KERNEL := device/samsung/j3popltespr/kernel
 
 #BOARD_HAS_NO_SELECT_BUTTON := true
