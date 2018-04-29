@@ -62,7 +62,7 @@ BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm
 #--dt dt.img
 
 BOARD_KERNEL_BASE := 0x80000000 
-BOARD_KERNEL_PAGESIZE    := 2048
+BOARD_KERNEL_PAGESIZE := 2048
 
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x02000000
@@ -71,11 +71,11 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
 
 BOARD_FLASH_BLOCK_SIZE := 4096 #131072
 
-BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE)\ 
-						--kernel_offset $(BOARD_KERNEL_OFFSET) \ 
-						--ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
-						--tags_offset $(BOARD_KERNEL_TAGS_OFFSET) \
-						--pagesize $(BOARD_KERNEL_PAGESIZE)
+BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) \ 
+                        --kernel_offset $(BOARD_KERNEL_OFFSET) \ 
+                        --ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
+                        --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) \
+                        --pagesize $(BOARD_KERNEL_PAGESIZE)
 #--dt
 
 BOARD_KERNEL_SEPARATED_DT := true
