@@ -5,8 +5,6 @@ USE_CAMERA_STUB := true
 
 TARGET_ARCH := arm
 
-# todo: cross-compilter
-
 BOARD_USES_GENERIC_AUDIO := true
 
 TARGET_HAVE_HDMI_OUT := false
@@ -71,7 +69,7 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
 
 BOARD_FLASH_BLOCK_SIZE := 4096 #131072
 
-BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --pagesize $(BOARD_KERNEL_PAGESIZE)
+BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --pagesize $(BOARD_KERNEL_PAGESIZE) --dt device/samsung/j3popltespr/files/dt.img
 
 #--dt
 
@@ -107,7 +105,16 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 134217728 # 32768 x 4096
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
 TARGET_KERNEL_SOURCE := kernel/samsung/j3popltespr
-TARGET_KERNEL_CONFIG := msm8937_sec_j3poplte_usa_spr_defconfig
+TARGET_KERNEL_CONFIG := msm8937_sec_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8937_sec_j3poplte_usa_spr_defconfig
+TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
+
+# warning: unused variable 'pdata'
+
+# msm8937_sec_j3poplte_usa_spr_defconfig msm8937_sec_defconfig SELINUX_DEFCONFIG=selinux_defconfig
+
 TARGET_PREBUILT_KERNEL := device/samsung/j3popltespr/kernel
+
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 
 #BOARD_HAS_NO_SELECT_BUTTON := true
