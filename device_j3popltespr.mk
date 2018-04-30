@@ -26,8 +26,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_j3popltespr
 PRODUCT_DEVICE := j3popltespr
 
-#	Boot file attempt 1
-
 #PRODUCT_PACKAGES += \
  #   fstab.qcom \
   ##  initlogo.rle \
@@ -53,7 +51,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/j3popltespr/files/fstab.qcom:root/fstab.qcom \
     device/samsung/j3popltespr/files/init.recovery.service.rc:root/init.recovery.service.usb.rc 
 
-
-PRODUCT_COPY_FILES += \
-    device/samsung/j3popltespr/files/ueventd.qcom.rc:recovery/ueventd.qcom.rc \
-    device/samsung/j3popltespr/files/fstab.qcom:recovery/fstab.qcom
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.adb.secure = 0 \
+#    ro.secure = 0

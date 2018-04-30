@@ -69,7 +69,8 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
 
 BOARD_FLASH_BLOCK_SIZE := 4096 #131072
 
-BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --pagesize $(BOARD_KERNEL_PAGESIZE) --dt device/samsung/j3popltespr/files/dt.img
+BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --pagesize $(BOARD_KERNEL_PAGESIZE) --dt out/target/product/j3popltespr/dt.img
+#device/samsung/j3popltespr/files/dt.img
 
 #--dt
 
