@@ -53,7 +53,7 @@ TARGET_BOOTLOADER_BOARD_NAME := j3popltespr
 #90000000-afffffff : System RAM
 #c0000000-efffffff : System RAM
 
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci androidboot.selinux=enforcing
 
 # mkbootimg --kernel zImage --ramdisk initramfs.cpio.gz --base 0x80000000 
 #--pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 
@@ -117,5 +117,7 @@ TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_PREBUILT_KERNEL := device/samsung/j3popltespr/kernel
 
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+
+#BOARD_SEPOLICY_DIRS += device/samsung/j3popltespr/sepolicy
 
 #BOARD_HAS_NO_SELECT_BUTTON := true
